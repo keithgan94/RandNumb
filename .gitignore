@@ -1,0 +1,38 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Virtual environment
+venv/
+.venv/
+
+# Docker-related files
+docker-compose.yml
+docker-compose.override.yml
+
+# Ignore Docker build cache files
+*.log
+*.tmp
+
+# Terraform files (exclude local state)
+.terraform/
+*.tfstate
+*.tfstate.*
+crash.log
+
+# Kubeconfig (local configuration file for Kubernetes)
+kubeconfig
+
+# Ignore Kubernetes generated files
+*.yaml
+*.yml
+
+# GitHub Actions
+.github/
+
+# General
+.DS_Store
+*.swp
+.idea/
+.vscode/
