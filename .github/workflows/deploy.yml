@@ -38,5 +38,6 @@ jobs:
 
     - name: Change Directory and Apply Kubernetes Manifests
       run: |
-        cd kustomize
+        cd ../
+        cd Kustomize
         kubectl apply -k .
