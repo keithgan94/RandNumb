@@ -1,0 +1,32 @@
+name: CI/CD Pipeline
+
+on:
+  push:
+    branches:
+      - v1.0
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
+
+    - name: Build Docker image
+      run: |
+        docker build -t random-number-generator:v2.0 .
+    
+    - name: Push to Docker Hub
+      run: |
+        docker tag random-number-generator:v1.0 keithgan94/random-number-generator:v2.0
+        docker push <DockerHub-Username>/random-number-generator:v2.0
+
+  deploy:
+    runs-on: ubuntu-latest
+    needs: build
+
+    steps:
+    - name: Apply Kubernetes manifests
+      run: |
+        kubectl apply -k ./kustomize
