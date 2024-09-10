@@ -36,9 +36,7 @@ jobs:
     - name: Checkout code
       uses: actions/checkout@v2
 
-    - name: Change Directory
-      run: cd ../
-
-    - name: Apply Kubernetes manifests
+    - name: Change Directory and Apply Kubernetes Manifests
       run: |
-        kubectl apply -k ./kustomize
+        cd kustomize
+        kubectl apply -k .
