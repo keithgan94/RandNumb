@@ -38,6 +38,7 @@ jobs:
 
     - name: Change Directory and Apply Kubernetes Manifests
       run: |
-        cd ../
+        pwd
+        ls -la
         cd Kustomize
         kubectl apply -k .
