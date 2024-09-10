@@ -33,6 +33,12 @@ jobs:
     needs: build
 
     steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
+
+    - name: Change Directory
+      run: cd ../
+
     - name: Apply Kubernetes manifests
       run: |
         kubectl apply -k ./kustomize
