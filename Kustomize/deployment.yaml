@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: random-number-generator
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: random-number-generator
+  template:
+    metadata:
+      labels:
+        app: random-number-generator
+    spec:
+      containers:
+        - name: random-number-generator
+          image: random-number-generator:v2.0
+          ports:
+            - containerPort: 8080
